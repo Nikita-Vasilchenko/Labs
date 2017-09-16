@@ -1,0 +1,26 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main()
+
+{
+	float meters;
+	int inches;
+	float arshins;
+
+	printf("Please enter an integer number of inches \n");
+	scanf("%d", &inches);
+
+	meters = inches / 39.3701;
+	printf("received meters %f \n", meters);
+
+	printf("Please enter an integer number of meters \n");
+	scanf("%d", &meters);
+
+	arshins = meters * 1.40607424072;
+	printf("received arshins %f \n", arshins);
+
+	getchar();
+
+	return 0;
+}
