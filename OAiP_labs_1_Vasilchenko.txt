@@ -16,7 +16,7 @@ int main()
 	
 	{
 	
-	printf("Please enter an integer number of inches \n");
+	printf("Please enter not an integer number of inches \n");
 	scanf("%f", &inches);
 
 	meters = inches / 39.3701;
