@@ -5,20 +5,35 @@ int main()
 
 {
 	float meters;
-	int inches;
+	float inches;
 	float arshins;
-
+	
+        printf("Meters and inches should be positive \n");
+	
+	if
+	(meters >= 0);
+	(inches >= 0);
+	
+	{
+	
 	printf("Please enter an integer number of inches \n");
-	scanf("%d", &inches);
+	scanf("%f", &inches);
 
 	meters = inches / 39.3701;
 	printf("received meters %f \n", meters);
 
-	printf("Please enter an integer number of meters \n");
-	scanf("%d", &meters);
+	printf("Please enter not an integer number of meters \n");
+	scanf("%f", &meters);
 
 	arshins = meters * 1.40607424072;
 	printf("received arshins %f \n", arshins);
+	}
+	
+	else
+	
+	{
+	     printf("invalid input \n");
+	}
 
 	getchar();
 
