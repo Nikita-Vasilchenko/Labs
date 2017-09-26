@@ -11,9 +11,9 @@ int main()
 	printf("Please enter not an integer number of inches \n");
 	printf("Please enter not an integer number of meters \n");
 	
-	scanf("%f %f", &inches, &meters);
+	scanf("%f", &inches);
 	 
-	if (inches >= 0 && meters >= 0);
+	if (inches >= 0)
 
 	{
 
