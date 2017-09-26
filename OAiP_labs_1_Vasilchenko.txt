@@ -9,7 +9,7 @@ int main()
 	printf("Inches and meters should be positive \n");
 		
 	printf("Please enter not an integer number of inches \n");
-	printf("Please enter not an integer number of meters \n");
+	
 	
 	scanf("%f", &inches);
 	 
