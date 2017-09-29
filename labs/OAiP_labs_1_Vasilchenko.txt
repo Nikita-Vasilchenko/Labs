@@ -1,0 +1,39 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+
+int main()
+
+{
+	float meters, inches, arshins;
+	
+	printf("Inches and meters should be positive \n");
+		
+	printf("Please enter not an integer number of inches \n");
+	
+	
+	scanf("%f", &inches);
+	 
+	if (inches >= 0)
+
+	{
+
+		meters = inches / 39.3701;
+		printf("received meters %f \n", meters);
+
+
+		arshins = meters * 1.40607424072;
+		printf("received arshins %f \n", arshins);
+	}
+	
+
+	else
+
+	{
+		printf("invalid input \n");
+	}
+
+	getchar();
+	getchar();
+
+	return 0;
+}
