@@ -1,6 +1,12 @@
+/*
+  Васильченко Никита Сергеевич
+  Лабораторная работа №1.
+  Вариант №4
+  Задание: перевести дюймы в метры и выразить в аршинах.
+*/
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
-
+#include <conio.h>
 int main()
 
 {
@@ -16,7 +22,6 @@ int main()
 	if (inches >= 0)
 
 	{
-
 		meters = inches / 39.3701;
 		printf("received meters %f \n", meters);
 
@@ -24,16 +29,11 @@ int main()
 		arshins = meters * 1.40607424072;
 		printf("received arshins %f \n", arshins);
 	}
-	
-
 	else
-
 	{
 		printf("invalid input \n");
 	}
 
-	getchar();
-	getchar();
-
+        getch();
 	return 0;
 }
