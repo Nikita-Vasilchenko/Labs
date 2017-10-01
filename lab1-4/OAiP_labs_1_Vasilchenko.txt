@@ -7,26 +7,22 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <conio.h>
+#define N 39.3701
+#define R 1.40607424072
 int main()
 
 {
 	float meters, inches, arshins;
-
 	printf("Inches and meters should be positive \n");
-
 	printf("Please enter not an integer number of inches \n");
-
-
 	scanf("%f", &inches);
 
 	if (inches >= 0)
-
 	{
-		meters = inches / 39.3701;
+		meters = inches / N;
 		printf("received meters %f \n", meters);
 
-
-		arshins = meters * 1.40607424072;
+		arshins = meters * R;
 		printf("received arshins %f \n", arshins);
 	}
 	else
