@@ -17,7 +17,7 @@ int main()
 	printf("Please enter not an integer number of inches \n");
 	int check = scanf("%f", &inches);
 
-	if (check == 1 && inches > 0)
+	if (check == 1 && inches >= 0)
 	{
 		meters = inches / INCHES_TO_METERS;
 		printf("received meters %f \n", meters);
