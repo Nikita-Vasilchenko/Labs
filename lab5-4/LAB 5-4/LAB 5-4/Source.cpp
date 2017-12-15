@@ -17,6 +17,7 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <cstring>
+#include <algorithm>
 
 
 struct Football
@@ -118,6 +119,11 @@ void sequencing(Football *play) // функция упорядочевания
 				c = play[j].points;
 				play[j].points = play[j + 1].points;
 				play[j + 1].points = c;
+				std::swap(play[j].name, play[j + 1].name);
+				std::swap(play[j].city, play[j + 1].city);
+				std::swap(play[j].numberOfGamesPlayed, play[j + 1].numberOfGamesPlayed);
+				std::swap(play[j].numberOfPlayers, play[j + 1].numberOfPlayers);
+				std::swap(play[j].surnameOfTheTrainer, play[j + 1].surnameOfTheTrainer);
 			}
 	}
 }
