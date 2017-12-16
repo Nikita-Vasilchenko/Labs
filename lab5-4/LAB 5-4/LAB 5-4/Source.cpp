@@ -30,10 +30,10 @@ struct Football
 	char surnameOfTheTrainer[100]; // фамилия тренера
 };
 
-void uporiadochenieMonitor(Football *play);
-void print(Football *play);
-void conclusion(Football *play);
-void sequencing(Football *play);
+void printOutputMonitor(Football *play); 
+void inputUser(Football *play); 
+void outputToFile(Football *play);
+void organizeStructures(Football *play);
 int cap = -1;
 int main()
 {
@@ -45,19 +45,19 @@ int main()
 		scanf("%d", &c); // пользователь вводит номер операции 
 		if (c == 0)
 		{
-			print(play);
+			inputUser(play);
 		}
 		else if ((c == 1)&&(cap != -1))
 		{
-			sequencing(play);
+			organizeStructures(play);
 		}
 		else if ((c == 2) && (cap != -1))
 		{
-			conclusion(play);
+			outputToFile(play);
 		}
 		else if ((c == 3) && (cap != -1))
 		{
-			uporiadochenieMonitor(play);
+			printOutputMonitor(play);
 		}
 		else if (c == 4)
 		{
@@ -67,7 +67,7 @@ int main()
 	}
 }
 
-void print(Football *play)   // функция - печатать (пользователь заполняет структуру)
+void inputUser(Football *play)   // функция заполнения структуры пользователем
 {
 	cap++; // считает сколько раз пользователь заполнил структуру
 
@@ -93,7 +93,7 @@ void print(Football *play)   // функция - печатать (пользо�
 		
 }
 
-void conclusion(Football *play) // функция вывода в файл записанной структуры пользователем 
+void outputToFile(Football *play) // функция вывода в файл записанной структуры пользователем 
 {
 	FILE *Out = fopen("C:/Users/Никита/source/repos/LAB 5-4/Debug/output.txt", "w");
 	for (int i = 0; i < cap + 1; i++) // выводим все элементы массива структур 
@@ -108,27 +108,24 @@ void conclusion(Football *play) // функция вывода в файл за�
 	fclose(Out);
 }
 
-void sequencing(Football *play) // функция упорядочевания 
+void organizeStructures(Football *play) // функция упорядочевания 
 {
 	for (int i = 0; i < cap; i++) // пузырьком по колличеству очков сортируем       
 	{
 		int c = 0;
-		for (int j = cap - 1; j >= i; j--) // кол-во элементов
+		for (int j = cap - 1; j >= i; j--) // кол-во элементов 
 			if (play[j].points < play[j + 1].points)
 			{
 				c = play[j].points;
 				play[j].points = play[j + 1].points;
 				play[j + 1].points = c;
-				std::swap(play[j].name, play[j + 1].name);
-				std::swap(play[j].city, play[j + 1].city);
-				std::swap(play[j].numberOfGamesPlayed, play[j + 1].numberOfGamesPlayed);
-				std::swap(play[j].numberOfPlayers, play[j + 1].numberOfPlayers);
-				std::swap(play[j].surnameOfTheTrainer, play[j + 1].surnameOfTheTrainer);
+				std::swap(play[j], play[j + 1]);
+				
 			}
 	}
 }
 
-void uporiadochenieMonitor(Football *play)  // вывод на экран
+void printOutputMonitor(Football *play)  // вывод на экран
 {
 	for (int i = 0; i < cap; i++) // выводим все элементы массива структур 
 	{
