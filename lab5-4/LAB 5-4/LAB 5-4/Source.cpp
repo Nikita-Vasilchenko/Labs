@@ -33,14 +33,15 @@ struct Football
 void printOutputMonitor(Football *play); 
 void inputUser(Football *play); 
 void outputToFile(Football *play);
-void organizeStructures(Football *play);
+void organizeStructuresPoints(Football *play);
+void organizeStructuresGames(Football *play);
 int cap = -1;
 int main()
 {
 	Football play[1024];
 	while (true) // бесконечный цикл
 	{
-		printf("vvedite 0 - dopolnit strukt, 1 - yporiadothit, 2 - vivod v file, 3 - vivod na monitor, 4 - exit");
+		printf("vvedite 0 - dopolnit strukt, 1 - yporiadothit po ochkam, 2 - yporiadothit po igram, 3 - vivod v file, 4 - vivod na monitor, 5 - exit");
 		int c = 0;
 		scanf("%d", &c); // пользователь вводит номер операции 
 		if (c == 0)
@@ -49,17 +50,22 @@ int main()
 		}
 		else if ((c == 1)&&(cap != -1))
 		{
-			organizeStructures(play);
+			organizeStructuresPoints(play);
 		}
 		else if ((c == 2) && (cap != -1))
 		{
+			organizeStructuresGames(play);
+		}
+
+		else if ((c == 3) && (cap != -1))
+		{
 			outputToFile(play);
 		}
-		else if ((c == 3) && (cap != -1))
+		else if ((c == 4) && (cap != -1))
 		{
 			printOutputMonitor(play);
 		}
-		else if (c == 4)
+		else if (c == 5)
 		{
 			return 0;
 		}
@@ -108,20 +114,41 @@ void outputToFile(Football *play) // функция вывода в файл з�
 	fclose(Out);
 }
 
-void organizeStructures(Football *play) // функция упорядочевания 
+void organizeStructuresPoints(Football *play) // функция упорядочевания 
 {
+	int c = 0;
 	for (int i = 0; i < cap; i++) // пузырьком по колличеству очков сортируем       
 	{
-		int c = 0;
 		for (int j = cap - 1; j >= i; j--) // кол-во элементов 
+		{
 			if (play[j].points < play[j + 1].points)
 			{
 				c = play[j].points;
 				play[j].points = play[j + 1].points;
 				play[j + 1].points = c;
 				std::swap(play[j], play[j + 1]);
-				
+
 			}
+		}
+	}
+}
+
+void organizeStructuresGames(Football *play) // функция упорядочевания 
+{
+	int c = 0;
+	for (int i = 0; i < cap; i++) // пузырьком по колличеству сыгранных игр сортируем       
+	{
+		for (int j = cap - 1; j >= i; j--)  
+		{
+			if (play[j].numberOfGamesPlayed < play[j + 1].numberOfGamesPlayed)
+			{
+				c = play[j].numberOfGamesPlayed;
+				play[j].numberOfGamesPlayed = play[j + 1].numberOfGamesPlayed;
+				play[j + 1].numberOfGamesPlayed = c;
+				std::swap(play[j], play[j + 1]);
+
+			}
+		}
 	}
 }
 
