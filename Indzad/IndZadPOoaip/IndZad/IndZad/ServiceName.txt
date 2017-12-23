@@ -1,0 +1,10 @@
+SMS, 1, 0.5, min
+Rouming, 2, 0.3, min
+Svyaz, 3, 0.7, min
+Conferencing, 4, 3.5, hour
+Forwarding, 5, 1, piece
+Internet, 6, 3.6, mb
+Call Waiting, 7, 6, min
+MMS, 8, 6.6, piece
+Answering machine, 9, 1.2, piece
+Ban calls, 10, 3.1, day
